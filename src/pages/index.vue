@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSubscription } from '@urql/vue'
 import { useUserStore } from '~/stores/user'
 
 const user = useUserStore()
@@ -14,6 +15,21 @@ const go = () => {
 }
 
 const { t } = useI18n()
+
+const handleSubscription = (users = [], response) => {
+  return [response.userAdded, ...users];
+};
+
+const result = useSubscription({
+  query: `
+        subscription userAdded {
+          userAdded {
+            id
+            name
+          }
+        }
+      `
+}, handleSubscription)
 </script>
 
 <template>

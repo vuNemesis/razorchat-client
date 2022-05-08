@@ -10,7 +10,10 @@ specifiers:
   '@tailwindcss/line-clamp': ^0.4.0
   '@tailwindcss/typography': ^0.5.2
   '@types/markdown-it-link-attributes': ^3.0.1
+  '@types/node': ^17.0.31
   '@types/nprogress': ^0.2.0
+  '@urql/exchange-multipart-fetch': ^0.1.14
+  '@urql/vue': ^0.6.2
   '@vitejs/plugin-vue': ^1.9.2
   '@vitejs/plugin-vue-jsx': ^1.3.10
   '@vue/compiler-sfc': ^3.2.19
@@ -21,6 +24,8 @@ specifiers:
   critters: ^0.0.10
   cross-env: ^7.0.3
   eslint: ^7.32.0
+  graphql: ^16.4.0
+  graphql-ws: ^5.8.1
   https-localhost: ^4.7.0
   install: ^0.13.0
   markdown-it-link-attributes: ^3.0.0
@@ -50,9 +55,13 @@ specifiers:
 
 dependencies:
   '@headlessui/vue': 1.6.1_vue@3.2.19
+  '@urql/exchange-multipart-fetch': 0.1.14_graphql@16.4.0
+  '@urql/vue': 0.6.2_graphql@16.4.0+vue@3.2.19
   '@vueuse/core': 6.5.3_vue@3.2.19
   '@vueuse/head': 0.6.0_vue@3.2.19
   autoprefixer: 10.4.7_postcss@8.4.13
+  graphql: 16.4.0
+  graphql-ws: 5.8.1_graphql@16.4.0
   install: 0.13.0
   nprogress: 0.2.0
   pinia: 2.0.0-rc.9_lqv5mkto5kjax7oqjrhzmdimwa
@@ -73,6 +82,7 @@ devDependencies:
   '@tailwindcss/line-clamp': 0.4.0_tailwindcss@3.0.24
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.24
   '@types/markdown-it-link-attributes': 3.0.1
+  '@types/node': 17.0.31
   '@types/nprogress': 0.2.0
   '@vitejs/plugin-vue': 1.9.2_vite@2.6.1
   '@vitejs/plugin-vue-jsx': 1.3.10
@@ -1669,6 +1679,14 @@ packages:
       - supports-color
     dev: true
 
+  /@graphql-typed-document-node/core/3.1.1_graphql@16.4.0:
+    resolution: {integrity: sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.4.0
+    dev: false
+
   /@headlessui/vue/1.6.1_vue@3.2.19:
     resolution: {integrity: sha512-fccGN1hsFvS0P73NplZoOdX1rhyaH5jIQE9IUKNaaJC72mQjR3lVvZldo+iiLF5X1bqgl6pDixWdqS2kMGfFxA==}
     engines: {node: '>=10'}
@@ -1990,8 +2008,8 @@ packages:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: true
 
-  /@types/node/16.9.2:
-    resolution: {integrity: sha512-ZHty/hKoOLZvSz6BtP1g7tc7nUeJhoCf3flLjh8ZEv1vFKBWHXcnMbJMyN/pftSljNyy0kNW/UqI3DccnBnZ8w==}
+  /@types/node/17.0.31:
+    resolution: {integrity: sha512-AR0x5HbXGqkEx9CadRH3EBYx/VkiUgZIhP4wvPn/+5KIsgpNoyFaRlVe0Zlx9gRtg8fA06a9tskE2MSN7TcG4Q==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -2005,7 +2023,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 17.0.31
     dev: true
 
   /@types/throttle-debounce/2.1.0:
@@ -2120,6 +2138,39 @@ packages:
       '@typescript-eslint/types': 4.31.1
       eslint-visitor-keys: 2.1.0
     dev: true
+
+  /@urql/core/2.4.4_graphql@16.4.0:
+    resolution: {integrity: sha512-TD+OS7jG1Ts6QkpU0TZ85i/vu40r71GF0QQFDhnWFtgkHcNwnpkIwWBMa72AR3j2imBTPpk61e/xb39uM/t37A==}
+    peerDependencies:
+      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      '@graphql-typed-document-node/core': 3.1.1_graphql@16.4.0
+      graphql: 16.4.0
+      wonka: 4.0.15
+    dev: false
+
+  /@urql/exchange-multipart-fetch/0.1.14_graphql@16.4.0:
+    resolution: {integrity: sha512-JdffZtfsJHQ4v0IevimPWbteXT1C5OH3PPbNJrbLigC9aCZB9dp2ZOjMXTvpP+3SIjJRFRguuRaL7hAGB04vgw==}
+    peerDependencies:
+      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      '@urql/core': 2.4.4_graphql@16.4.0
+      extract-files: 11.0.0
+      graphql: 16.4.0
+      wonka: 4.0.15
+    dev: false
+
+  /@urql/vue/0.6.2_graphql@16.4.0+vue@3.2.19:
+    resolution: {integrity: sha512-hrVysup75sgnNgOhhvVfI2ChOM1JDx+/+D9qKIKrTHn/IsykIjm9IrYK5+CcYoQmzXX6lfnJ8d1F3uu8k4flyA==}
+    peerDependencies:
+      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+      vue: ^3.0.0
+    dependencies:
+      '@urql/core': 2.4.4_graphql@16.4.0
+      graphql: 16.4.0
+      vue: 3.2.19
+      wonka: 4.0.15
+    dev: false
 
   /@vitejs/plugin-vue-jsx/1.3.10:
     resolution: {integrity: sha512-Cf5zznh4yNMiEMBfTOztaDVDmK1XXfgxClzOSUVUc8WAmHzogrCUeM8B05ABzuGtg0D1amfng+mUmSIOFGP3Pw==}
@@ -3971,6 +4022,11 @@ packages:
       is-extendable: 0.1.1
     dev: true
 
+  /extract-files/11.0.0:
+    resolution: {integrity: sha512-FuoE1qtbJ4bBVvv94CC7s0oTnKUGvQs+Rjf1L2SJFfS+HTVVjhPFtehPdQ0JiGPqVNfSSZvL5yzHHQq2Z4WNhQ==}
+    engines: {node: ^12.20 || >= 14.13}
+    dev: false
+
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
@@ -4210,6 +4266,20 @@ packages:
   /graceful-fs/4.2.8:
     resolution: {integrity: sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==}
     dev: true
+
+  /graphql-ws/5.8.1_graphql@16.4.0:
+    resolution: {integrity: sha512-UVf/fxlHultC1+12tX9ShTIipqQFNZ96g7N51RFQlk7MFPsDUUMCR3QXVEzHEd5xlTp16rs5vCyfBljvcPN3fA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      graphql: '>=0.11 <=16'
+    dependencies:
+      graphql: 16.4.0
+    dev: false
+
+  /graphql/16.4.0:
+    resolution: {integrity: sha512-tYDNcRvKCcfHREZYje3v33NSrSD/ZpbWWdPtBtUUuXx9NCo/2QDxYzNqCnMvfsrnbwRpEHMovVrPu/ERoLrIRg==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+    dev: false
 
   /gray-matter/4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
@@ -4662,7 +4732,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 17.0.31
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -7121,6 +7191,10 @@ packages:
       assert-never: 1.2.1
       babel-walk: 3.0.0-canary-5
     dev: true
+
+  /wonka/4.0.15:
+    resolution: {integrity: sha512-U0IUQHKXXn6PFo9nqsHphVCE5m3IntqZNB9Jjn7EB1lrR7YTDY3YWgFvEvwniTzXSvOH/XMzAZaIfJF/LvHYXg==}
+    dev: false
 
   /word-wrap/1.2.3:
     resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}
